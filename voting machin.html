@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    body{
+        background-color: #867373;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column;
+    }
+    .parties{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 450px;
+    }
+    .party{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        background: rgb(163, 155, 145);
+        gap: 100px;
+        border: 1px solid rgb(68, 60, 60);
+        padding: 0 15px;
+    }
+    .party img{
+        width: 90px;
+        height: 90px;
+        margin: 10px 0;
+    }
+    .party:first-child{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+    }
+    .party:last-child{
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+    .counting {
+            font-size: 20px;
+        }
+    #results {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+</style>
+<body>
+   <h2>Votting Machin </h2>
+   <div class="Parties">
+    <div class="party">
+        <img src="e:\image htmal\html logo - Yahoo India Image Search results_files\bjp.jpg" alt="">
+        <h2 class="counting">0</h2>
+    </div>
+        <div class="party">
+            <img src="e:\image htmal\html logo - Yahoo India Image Search results_files\Manse.jpg" alt="">
+            <h2 class="counting">0</h2>
+        </div> 
+        <div class="party">
+            <img src="e:\image htmal\html logo - Yahoo India Image Search results_files\congress.jpg" alt="">
+            <h2 class="counting">0</h2>
+        </div>    
+        <div class="party">
+            <img src="e:\image htmal\html logo - Yahoo India Image Search results_files\rastrawadi.jpg" alt="">
+            <h2 class="counting">0</h2>
+        </div>    
+        <div class="party">
+            <img src="e:\image htmal\html logo - Yahoo India Image Search results_files\mashal.jpg" alt="">
+            <h2 class="counting">0</h2>
+        </div>       
+   </div> 
+
+<script>
+let partyImg = document.querySelectorAll(".party-img");
+let counting = document.querySelector(".counting");
+let results = document.getElementById("results");
+const candidates = [
+    { name: "candidate 1",  votes: 0 },
+    { name: "candidate 2", votes: 0 },
+    { name: "candidate 3", votes: 0 },
+    { name: "candidate 4", votes: 0 },
+    { name: "candidate 5", votes: 0 },
+];
+
+partyImg.forEach((partyImg, index) => {
+            partyImg.addEventListener("click", () => {
+                candidates[index].votes += 1;
+                countings[index].innerHTML = candidates[index].votes;
+                showResults();
+            });
+        });
+function showResults() {
+            let resultHtml = "<h2>Vote Results:</h2><ul>";
+            candidates.forEach(candidate => {
+                resultHtml += `<li>${candidate.name}: ${candidate.votes} votes</li>`;
+            });
+            resultHtml += "</ul>";
+            results.innerHTML = resultHtml;
+        }
+
+</script>
+</body>
+</html>
