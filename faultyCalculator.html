@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faulty Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+
+/* Calculator container */
+.calculator {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2), inset 0px 2px 4px rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #f7f2f2;
+}
+
+/* Title styling */
+.calculator h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0px 2px 5px rgba(40, 37, 37, 0.3);
+}
+
+/* Input fields and dropdown */
+input[type="number"], select {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #121010;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs placeholder styling */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Buttons */
+button {
+  width: 85%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #12c2e9)
+}
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>Faulty Calculator</h1>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <button onclick="calculate()">Calculate</button>
+   
+
+    <p id="result">Result: </p>
+  </div>
+
+  <script>
+    function calculate() {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const operator = document.getElementById("operator").value;
+      let result;
+
+      switch (operator) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num1 / num2;
+          break;
+      }
+
+      
+      if (Math.random() > 0.7) {
+        result += Math.floor(Math.random() * 10) - 5; 
+      }
+
+      document.getElementById("result").innerText = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
